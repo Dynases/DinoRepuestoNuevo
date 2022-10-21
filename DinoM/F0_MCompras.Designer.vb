@@ -723,6 +723,7 @@ Partial Class F0_MCompras
         Me.btnBuscarProforma.Size = New System.Drawing.Size(25, 20)
         Me.btnBuscarProforma.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.btnBuscarProforma.TabIndex = 681
+        Me.btnBuscarProforma.Visible = False
         '
         'SwProforma
         '
@@ -740,6 +741,7 @@ Partial Class F0_MCompras
         Me.SwProforma.Size = New System.Drawing.Size(62, 22)
         Me.SwProforma.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.SwProforma.TabIndex = 680
+        Me.SwProforma.Visible = False
         '
         'LabelX18
         '
@@ -757,6 +759,7 @@ Partial Class F0_MCompras
         Me.LabelX18.Size = New System.Drawing.Size(67, 16)
         Me.LabelX18.TabIndex = 679
         Me.LabelX18.Text = "Proforma:"
+        Me.LabelX18.Visible = False
         '
         'tbProforma
         '
@@ -774,6 +777,7 @@ Partial Class F0_MCompras
         Me.tbProforma.PreventEnterBeep = True
         Me.tbProforma.Size = New System.Drawing.Size(95, 22)
         Me.tbProforma.TabIndex = 678
+        Me.tbProforma.Visible = False
         '
         'btnAgregar
         '
@@ -805,6 +809,7 @@ Partial Class F0_MCompras
         Me.lbTipoCambio.Size = New System.Drawing.Size(105, 23)
         Me.lbTipoCambio.TabIndex = 675
         Me.lbTipoCambio.Text = "Tipo de Cambio:"
+        Me.lbTipoCambio.Visible = False
         '
         'tbTipoCambio
         '
@@ -819,6 +824,7 @@ Partial Class F0_MCompras
         Me.tbTipoCambio.Name = "tbTipoCambio"
         Me.tbTipoCambio.Size = New System.Drawing.Size(132, 22)
         Me.tbTipoCambio.TabIndex = 674
+        Me.tbTipoCambio.Visible = False
         '
         'LabelX14
         '
@@ -835,6 +841,7 @@ Partial Class F0_MCompras
         Me.LabelX14.Size = New System.Drawing.Size(90, 23)
         Me.LabelX14.TabIndex = 673
         Me.LabelX14.Text = "Tipo Moneda:"
+        Me.LabelX14.Visible = False
         '
         'swMoneda
         '
@@ -854,6 +861,7 @@ Partial Class F0_MCompras
         Me.swMoneda.TabIndex = 672
         Me.swMoneda.Value = True
         Me.swMoneda.ValueObject = "Y"
+        Me.swMoneda.Visible = False
         '
         'swRetencion
         '
@@ -1663,6 +1671,7 @@ Partial Class F0_MCompras
         Me.btnTraspaso.TabIndex = 14
         Me.btnTraspaso.Text = "TRASPASO"
         Me.btnTraspaso.TextColor = System.Drawing.Color.White
+        Me.btnTraspaso.Visible = False
         '
         'F0_MCompras
         '

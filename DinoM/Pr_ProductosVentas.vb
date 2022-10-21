@@ -13,7 +13,7 @@ Public Class Pr_ProductosVentas
         tbFechaF.Value = Now.Date
         _PMIniciarTodo()
         'L_prAbrirConexion(gs_Ip, gs_UsuarioSql, gs_ClaveSql, gs_NombreBD)
-        Me.Text = "REPORTE VENTAS VS COSTOS"
+        Me.Text = "REPORTE PRODUCTOS VENTAS"
         MReportViewer.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         _IniciarComponentes()
     End Sub

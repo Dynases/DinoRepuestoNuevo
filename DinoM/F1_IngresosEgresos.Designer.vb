@@ -169,6 +169,9 @@ Partial Class F1_IngresosEgresos
         'btnSalir
         '
         '
+        'btnGrabar
+        '
+        '
         'btnModificar
         '
         '
@@ -353,6 +356,7 @@ Partial Class F1_IngresosEgresos
         Me.btnBuscarDevolución.Size = New System.Drawing.Size(28, 23)
         Me.btnBuscarDevolución.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.btnBuscarDevolución.TabIndex = 389
+        Me.btnBuscarDevolución.Visible = False
         '
         'lbDevolucion
         '
@@ -370,6 +374,7 @@ Partial Class F1_IngresosEgresos
         Me.lbDevolucion.Size = New System.Drawing.Size(93, 16)
         Me.lbDevolucion.TabIndex = 388
         Me.lbDevolucion.Text = "Id Devolución:"
+        Me.lbDevolucion.Visible = False
         '
         'tbIdDevolucion
         '
@@ -387,6 +392,7 @@ Partial Class F1_IngresosEgresos
         Me.tbIdDevolucion.Size = New System.Drawing.Size(63, 22)
         Me.tbIdDevolucion.TabIndex = 387
         Me.tbIdDevolucion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.tbIdDevolucion.Visible = False
         '
         'LabelX17
         '
@@ -679,7 +685,7 @@ Partial Class F1_IngresosEgresos
         Me.LabelX3.SingleLineColor = System.Drawing.SystemColors.Control
         Me.LabelX3.Size = New System.Drawing.Size(148, 23)
         Me.LabelX3.TabIndex = 25
-        Me.LabelX3.Text = "Monto Bs.:"
+        Me.LabelX3.Text = "Monto $:"
         '
         'swTipo
         '

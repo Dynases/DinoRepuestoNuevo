@@ -1319,9 +1319,9 @@ Partial Class F1_Productos
         Me.LabelX17.Location = New System.Drawing.Point(62, 123)
         Me.LabelX17.Name = "LabelX17"
         Me.LabelX17.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX17.Size = New System.Drawing.Size(138, 16)
+        Me.LabelX17.Size = New System.Drawing.Size(130, 16)
         Me.LabelX17.TabIndex = 226
-        Me.LabelX17.Text = "Precio Mecanico (Bs):"
+        Me.LabelX17.Text = "Precio Mecanico ($):"
         '
         'tbPrecioMecanico
         '
@@ -1353,9 +1353,9 @@ Partial Class F1_Productos
         Me.LabelX18.Location = New System.Drawing.Point(75, 38)
         Me.LabelX18.Name = "LabelX18"
         Me.LabelX18.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX18.Size = New System.Drawing.Size(122, 16)
+        Me.LabelX18.Size = New System.Drawing.Size(106, 16)
         Me.LabelX18.TabIndex = 224
-        Me.LabelX18.Text = "Precio Costo ($u$):"
+        Me.LabelX18.Text = "Precio Costo ($):"
         '
         'tbPrecioCosto
         '
@@ -1387,9 +1387,9 @@ Partial Class F1_Productos
         Me.LabelX14.Location = New System.Drawing.Point(35, 95)
         Me.LabelX14.Name = "LabelX14"
         Me.LabelX14.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX14.Size = New System.Drawing.Size(165, 16)
+        Me.LabelX14.Size = New System.Drawing.Size(157, 16)
         Me.LabelX14.TabIndex = 220
-        Me.LabelX14.Text = "Precio Venta Publico (Bs):"
+        Me.LabelX14.Text = "Precio Venta Publico ($):"
         '
         'tbPrecioVentaNormal
         '
@@ -1464,10 +1464,10 @@ Partial Class F1_Productos
         Me.SuperTabControl_Imagenes_DetalleProducto.ControlBox.MenuBox.Name = ""
         Me.SuperTabControl_Imagenes_DetalleProducto.ControlBox.Name = ""
         Me.SuperTabControl_Imagenes_DetalleProducto.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabControl_Imagenes_DetalleProducto.ControlBox.MenuBox, Me.SuperTabControl_Imagenes_DetalleProducto.ControlBox.CloseBox})
+        Me.SuperTabControl_Imagenes_DetalleProducto.Controls.Add(Me.SuperTabControlPanel1)
         Me.SuperTabControl_Imagenes_DetalleProducto.Controls.Add(Me.SuperTabControlPanel4)
         Me.SuperTabControl_Imagenes_DetalleProducto.Controls.Add(Me.SuperTabControlPanel3)
         Me.SuperTabControl_Imagenes_DetalleProducto.Controls.Add(Me.SuperTabControlPanel2)
-        Me.SuperTabControl_Imagenes_DetalleProducto.Controls.Add(Me.SuperTabControlPanel1)
         Me.SuperTabControl_Imagenes_DetalleProducto.Controls.Add(Me.SuperTabControlPanel5)
         Me.SuperTabControl_Imagenes_DetalleProducto.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SuperTabControl_Imagenes_DetalleProducto.Location = New System.Drawing.Point(0, 0)
@@ -1665,9 +1665,9 @@ Partial Class F1_Productos
         Me.LabelX11.Location = New System.Drawing.Point(18, 65)
         Me.LabelX11.Name = "LabelX11"
         Me.LabelX11.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX11.Size = New System.Drawing.Size(181, 16)
+        Me.LabelX11.Size = New System.Drawing.Size(174, 16)
         Me.LabelX11.TabIndex = 228
-        Me.LabelX11.Text = "Precio Venta Facturado (Bs):"
+        Me.LabelX11.Text = "Precio Venta Facturado ($):"
         '
         'tbPrecioFacturado
         '

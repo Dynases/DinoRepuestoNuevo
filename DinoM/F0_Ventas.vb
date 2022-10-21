@@ -52,8 +52,8 @@ Public Class F0_Ventas
         _prCargarComboLibreria(cbCambioDolar, 7, 1)
         cbCambioDolar.Value = 1
         _prCargarComboPrecio(cbPrecio)
-        lbTipoMoneda.Visible = True
-        swMoneda.Visible = True
+        'lbTipoMoneda.Visible = True
+        'swMoneda.Visible = True
         P_prCargarVariablesIndispensables()
         _prCargarVenta()
         _prInhabiliitar()
@@ -329,7 +329,7 @@ Public Class F0_Ventas
         tbCliente.Clear()
         tbVendedor.Clear()
         tbObservacion.Clear()
-        swMoneda.Value = True
+        swMoneda.Value = False
         swTipoVenta.Value = True
         _CodCliente = 0
         _CodEmpleado = 0

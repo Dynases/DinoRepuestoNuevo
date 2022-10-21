@@ -76,6 +76,7 @@ Public Class F1_Productos
         _prEliminarContenidoImage()
         JGrM_Buscador.Enabled = True
         SeleccionarCategoria()
+        btnImprimir.Visible = False
     End Sub
 
     Private Sub MyWorker_DoWork(ByVal sender As System.Object, ByVal e As System.ComponentModel.DoWorkEventArgs)
@@ -575,7 +576,7 @@ Public Class F1_Productos
         JGrM_Buscador.Focus()
         Limpiar = False
         btExcel.Visible = True
-        btnImprimir.Visible = True
+        'btnImprimir.Visible = True
         dgjDetalleProducto.AllowEdit = InheritableBoolean.False
         dgjDetalleProducto.RootTable.Columns("delete").Visible = False
 
@@ -823,21 +824,21 @@ Public Class F1_Productos
         If tbDescPro.Text = String.Empty Then
             tbDescPro.BackColor = Color.Red
             AddHandler tbDescPro.KeyDown, AddressOf TextBox_KeyDown
-            MEP.SetError(tbDescPro, "ingrese el descripcion del producto!".ToUpper)
+            MEP.SetError(tbDescPro, "Ingrese la descripcion del producto!".ToUpper)
             _ok = False
         Else
             tbDescPro.BackColor = Color.White
             MEP.SetError(tbDescPro, "")
         End If
-        'If tbDescCort.Text = String.Empty Then
-        '    tbDescCort.BackColor = Color.Red
-        '    MEP.SetError(tbDescCort, "ingrese la Descripcion Corta del Producto!".ToUpper)
-        '    AddHandler tbDescCort.KeyDown, AddressOf TextBox_KeyDown
-        '    _ok = False
-        'Else
-        '    tbDescCort.BackColor = Color.White
-        '    MEP.SetError(tbDescCort, "")
-        'End If
+        If tbDescDet.Text = String.Empty Then
+            tbDescDet.BackColor = Color.Red
+            MEP.SetError(tbDescDet, "Ingrese la Descripcion Detallada del Producto!".ToUpper)
+            AddHandler tbDescDet.KeyDown, AddressOf TextBox_KeyDown
+            _ok = False
+        Else
+            tbDescDet.BackColor = Color.White
+            MEP.SetError(tbDescDet, "")
+        End If
 
         If tbStockMinimo.Text = String.Empty Then
             tbStockMinimo.BackColor = Color.Red
@@ -857,18 +858,18 @@ Public Class F1_Productos
             End If
 
         End If
-        If cbgrupo1.SelectedIndex <= 0 Then
+        If cbgrupo1.SelectedIndex < 0 Then
             cbgrupo1.BackColor = Color.Red
-            MEP.SetError(cbgrupo1, "Seleccione Marca del producto diferente a No Existe!".ToUpper)
+            MEP.SetError(cbgrupo1, "Seleccione Marca del producto !".ToUpper)
             _ok = False
         Else
             cbgrupo1.BackColor = Color.White
             MEP.SetError(cbgrupo1, "")
         End If
 
-        If cbgrupo2.SelectedIndex <= 0 Then
+        If cbgrupo2.SelectedIndex < 0 Then
             cbgrupo2.BackColor = Color.Red
-            MEP.SetError(cbgrupo2, "Seleccione Procedencia del producto diferente a No Existe!".ToUpper)
+            MEP.SetError(cbgrupo2, "Seleccione Procedencia del producto!".ToUpper)
             _ok = False
         Else
             cbgrupo2.BackColor = Color.White
@@ -889,6 +890,14 @@ Public Class F1_Productos
         Else
             cbgrupo4.BackColor = Color.White
             MEP.SetError(cbgrupo4, "")
+        End If
+        If cbgrupo5.SelectedIndex < 0 Then
+            cbgrupo5.BackColor = Color.Red
+            MEP.SetError(cbgrupo5, "Selecciones Categoria del producto!".ToUpper)
+            _ok = False
+        Else
+            cbgrupo5.BackColor = Color.White
+            MEP.SetError(cbgrupo5, "")
         End If
         If cbUMed.SelectedIndex < 0 Then
             cbUMed.BackColor = Color.Red
@@ -1529,28 +1538,28 @@ Public Class F1_Productos
             .Visible = True
         End With
         With JG_HistPrecios.RootTable.Columns("haPCosto")
-            .Caption = "P. Costo ($us)"
+            .Caption = "P. Costo ($)"
             .Width = 100
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .FormatString = "0.00"
         End With
         With JG_HistPrecios.RootTable.Columns("haPVentaFact")
-            .Caption = "P. VentaFact. Bs."
+            .Caption = "P. VentaFact. $"
             .Width = 130
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .FormatString = "0.00"
         End With
         With JG_HistPrecios.RootTable.Columns("haPVentaPublico")
-            .Caption = "P. Venta Público Bs."
+            .Caption = "P. Venta Público $"
             .Width = 150
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .FormatString = "0.00"
         End With
         With JG_HistPrecios.RootTable.Columns("haPMecanico")
-            .Caption = "P. Mecánico Bs."
+            .Caption = "P. Mecánico $"
             .Width = 130
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
@@ -1765,18 +1774,17 @@ Public Class F1_Productos
 
     Private Sub tbPrecioCosto_ValueChanged(sender As Object, e As EventArgs) Handles tbPrecioCosto.ValueChanged
 
-        If (tbCodBarra.ReadOnly = False) Then
-            Dim PrecioCosto As Double = tbPrecioCosto.Value
-            Dim PrecioVentaFactura As Double
+        'If (tbCodBarra.ReadOnly = False) Then
+        '    Dim PrecioCosto As Double = tbPrecioCosto.Value
+        '    Dim PrecioVentaFactura As Double
 
 
-            PrecioVentaFactura = ((PrecioCosto + (PrecioCosto * 0.25) + (PrecioCosto * 0.16)) * 2) * 7
+        '    PrecioVentaFactura = tbPrecioFacturado.Value
 
-            tbPrecioFacturado.Value = PrecioVentaFactura
-            tbPrecioVentaNormal.Value = PrecioVentaFactura - (PrecioVentaFactura * 0.1)
-            tbPrecioMecanico.Value = PrecioVentaFactura - (PrecioVentaFactura * 0.15)
+        '    tbPrecioVentaNormal.Value = PrecioVentaFactura - (PrecioVentaFactura * 0.1)
+        '    tbPrecioMecanico.Value = PrecioVentaFactura - (PrecioVentaFactura * 0.15)
 
-        End If
+        'End If
     End Sub
     Private Sub tbPrecioFacturado_ValueChanged(sender As Object, e As EventArgs) Handles tbPrecioFacturado.ValueChanged
         If (tbCodBarra.ReadOnly = False) Then
@@ -1788,9 +1796,7 @@ Public Class F1_Productos
             End If
         End If
     End Sub
-    Private Sub LabelX17_Click(sender As Object, e As EventArgs) Handles LabelX17.Click
 
-    End Sub
 
     Private Sub tbPrecioVentaNormal_ValueChanged(sender As Object, e As EventArgs) Handles tbPrecioVentaNormal.ValueChanged
         Dim publico As Double = 0
@@ -1925,6 +1931,7 @@ Public Class F1_Productos
             CategoriaSeleccionada = Row.Cells("yccod3").Value
             CargarDatasourceProducto(CategoriaSeleccionada)
             lblCategoria.Text = Row.Cells("ycdes3").Value
+            cbgrupo5.Value = CategoriaSeleccionada
         End If
 
     End Sub
@@ -2259,10 +2266,10 @@ Public Class F1_Productos
     End Sub
 
     Private Sub JGrM_Buscador_EditingCell(sender As Object, e As EditingCellEventArgs) Handles JGrM_Buscador.EditingCell
-        e.Cancel = e.Column.Index <> JGrM_Buscador.RootTable.Columns("yfcprod").Index And
-           e.Column.Index <> JGrM_Buscador.RootTable.Columns("yfCodigoMarca").Index And
-           e.Column.Index <> JGrM_Buscador.RootTable.Columns("yfcdprod2").Index And
-           e.Column.Index <> JGrM_Buscador.RootTable.Columns("yfdetprod").Index
+        'e.Cancel = e.Column.Index <> JGrM_Buscador.RootTable.Columns("yfcprod").Index And
+        '   e.Column.Index <> JGrM_Buscador.RootTable.Columns("yfCodigoMarca").Index And
+        '   e.Column.Index <> JGrM_Buscador.RootTable.Columns("yfcdprod2").Index And
+        '   e.Column.Index <> JGrM_Buscador.RootTable.Columns("yfdetprod").Index
     End Sub
 
     Private Sub btnAgregar_Click_1(sender As Object, e As EventArgs) Handles btnAgregar.Click
@@ -2275,4 +2282,6 @@ Public Class F1_Productos
     Private Sub JG_HistPrecios_EditingCell(sender As Object, e As EditingCellEventArgs) Handles JG_HistPrecios.EditingCell
         e.Cancel = True
     End Sub
+
+
 End Class

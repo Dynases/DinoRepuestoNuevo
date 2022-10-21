@@ -63,6 +63,8 @@ Partial Class F0_CierreCaja
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.GroupPanel5 = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.LabelX21 = New DevComponents.DotNetBar.LabelX()
+        Me.tbTPagosPrestamos = New DevComponents.Editors.DoubleInput()
         Me.LabelX17 = New DevComponents.DotNetBar.LabelX()
         Me.LabelX18 = New DevComponents.DotNetBar.LabelX()
         Me.tbTIngresos = New DevComponents.Editors.DoubleInput()
@@ -91,8 +93,6 @@ Partial Class F0_CierreCaja
         Me.GroupPanel1 = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.Dgv_Buscador = New Janus.Windows.GridEX.GridEX()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.LabelX21 = New DevComponents.DotNetBar.LabelX()
-        Me.tbTPagosPrestamos = New DevComponents.Editors.DoubleInput()
         Me.PanelSuperior.SuspendLayout()
         Me.PanelInferior.SuspendLayout()
         CType(Me.BubbleBarUsuario, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -130,6 +130,7 @@ Partial Class F0_CierreCaja
         Me.Panel2.SuspendLayout()
         Me.GroupPanel5.SuspendLayout()
         Me.Panel6.SuspendLayout()
+        CType(Me.tbTPagosPrestamos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tbTIngresos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tbTEgresos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tbMontoI, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -145,7 +146,6 @@ Partial Class F0_CierreCaja
         Me.Panel4.SuspendLayout()
         Me.GroupPanel1.SuspendLayout()
         CType(Me.Dgv_Buscador, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.tbTPagosPrestamos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PanelSuperior
@@ -665,9 +665,9 @@ Partial Class F0_CierreCaja
         Me.LabelX6.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX6.Location = New System.Drawing.Point(8, 85)
         Me.LabelX6.Name = "LabelX6"
-        Me.LabelX6.Size = New System.Drawing.Size(85, 18)
+        Me.LabelX6.Size = New System.Drawing.Size(96, 18)
         Me.LabelX6.TabIndex = 239
-        Me.LabelX6.Text = "Monto Inicial:"
+        Me.LabelX6.Text = "Monto Inicial $:"
         Me.LabelX6.TextAlignment = System.Drawing.StringAlignment.Far
         '
         'tbMontoInicial
@@ -699,6 +699,7 @@ Partial Class F0_CierreCaja
         Me.LabelX14.TabIndex = 237
         Me.LabelX14.Text = "Tipo Cambio:"
         Me.LabelX14.TextAlignment = System.Drawing.StringAlignment.Far
+        Me.LabelX14.Visible = False
         '
         'Tb_TipoCambio
         '
@@ -713,6 +714,7 @@ Partial Class F0_CierreCaja
         Me.Tb_TipoCambio.Name = "Tb_TipoCambio"
         Me.Tb_TipoCambio.Size = New System.Drawing.Size(132, 21)
         Me.Tb_TipoCambio.TabIndex = 236
+        Me.Tb_TipoCambio.Visible = False
         '
         'cbbanco
         '
@@ -952,7 +954,7 @@ Partial Class F0_CierreCaja
         '
         Me.GroupPanel5.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.GroupPanel5.TabIndex = 382
-        Me.GroupPanel5.Text = "TOTALES  Bs."
+        Me.GroupPanel5.Text = "TOTALES  $"
         '
         'Panel6
         '
@@ -985,6 +987,37 @@ Partial Class F0_CierreCaja
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(389, 342)
         Me.Panel6.TabIndex = 65
+        '
+        'LabelX21
+        '
+        Me.LabelX21.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.LabelX21.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX21.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX21.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX21.Location = New System.Drawing.Point(14, 142)
+        Me.LabelX21.Name = "LabelX21"
+        Me.LabelX21.Size = New System.Drawing.Size(140, 23)
+        Me.LabelX21.TabIndex = 70
+        Me.LabelX21.Text = "T. Pagos Préstamos(-)"
+        '
+        'tbTPagosPrestamos
+        '
+        Me.tbTPagosPrestamos.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        '
+        '
+        '
+        Me.tbTPagosPrestamos.BackgroundStyle.Class = "DateTimeInputBackground"
+        Me.tbTPagosPrestamos.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbTPagosPrestamos.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2
+        Me.tbTPagosPrestamos.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbTPagosPrestamos.Increment = 1.0R
+        Me.tbTPagosPrestamos.Location = New System.Drawing.Point(161, 142)
+        Me.tbTPagosPrestamos.Name = "tbTPagosPrestamos"
+        Me.tbTPagosPrestamos.Size = New System.Drawing.Size(120, 23)
+        Me.tbTPagosPrestamos.TabIndex = 69
         '
         'LabelX17
         '
@@ -1416,37 +1449,6 @@ Partial Class F0_CierreCaja
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 500
         '
-        'LabelX21
-        '
-        Me.LabelX21.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.LabelX21.BackColor = System.Drawing.Color.Transparent
-        '
-        '
-        '
-        Me.LabelX21.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX21.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX21.Location = New System.Drawing.Point(14, 142)
-        Me.LabelX21.Name = "LabelX21"
-        Me.LabelX21.Size = New System.Drawing.Size(140, 23)
-        Me.LabelX21.TabIndex = 70
-        Me.LabelX21.Text = "T. Pagos Préstamos(-)"
-        '
-        'tbTPagosPrestamos
-        '
-        Me.tbTPagosPrestamos.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        '
-        '
-        '
-        Me.tbTPagosPrestamos.BackgroundStyle.Class = "DateTimeInputBackground"
-        Me.tbTPagosPrestamos.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.tbTPagosPrestamos.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2
-        Me.tbTPagosPrestamos.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbTPagosPrestamos.Increment = 1.0R
-        Me.tbTPagosPrestamos.Location = New System.Drawing.Point(161, 142)
-        Me.tbTPagosPrestamos.Name = "tbTPagosPrestamos"
-        Me.tbTPagosPrestamos.Size = New System.Drawing.Size(120, 23)
-        Me.tbTPagosPrestamos.TabIndex = 69
-        '
         'F0_CierreCaja
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1496,6 +1498,7 @@ Partial Class F0_CierreCaja
         Me.Panel2.ResumeLayout(False)
         Me.GroupPanel5.ResumeLayout(False)
         Me.Panel6.ResumeLayout(False)
+        CType(Me.tbTPagosPrestamos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tbTIngresos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tbTEgresos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tbMontoI, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1511,7 +1514,6 @@ Partial Class F0_CierreCaja
         Me.Panel4.ResumeLayout(False)
         Me.GroupPanel1.ResumeLayout(False)
         CType(Me.Dgv_Buscador, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.tbTPagosPrestamos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

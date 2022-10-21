@@ -215,7 +215,7 @@ Public Class F0_MCompras
         swConsigna.Value = False
         swRetencion.Value = False
         swMoneda.Value = False
-        tbTipoCambio.Value = 0
+        tbTipoCambio.Value = 1
 
         tbNFactura.Clear()
         tbNAutorizacion.Clear()
@@ -273,14 +273,7 @@ Public Class F0_MCompras
             tbSACF.Visible = True
         End If
 
-        If swMoneda.Value = True Then
-            lbTipoCambio.Visible = False
-            tbTipoCambio.Visible = False
-            tbTipoCambio.Value = 1
-        Else
-            lbTipoCambio.Visible = True
-            tbTipoCambio.Visible = True
-        End If
+
 
         If (gi_userSuc > 0) Then
             Dim dt As DataTable = CType(cbSucursal.DataSource, DataTable)
@@ -398,13 +391,6 @@ Public Class F0_MCompras
             tbSACF.Visible = False
         End If
 
-        If swMoneda.Value = True Then
-            lbTipoCambio.Visible = False
-            tbTipoCambio.Visible = False
-        Else
-            lbTipoCambio.Visible = True
-            tbTipoCambio.Visible = True
-        End If
     End Sub
 
     Private Sub _prCargarDetalleVenta(_numi As String)
@@ -625,21 +611,21 @@ Public Class F0_MCompras
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .Visible = True
             .FormatString = "0.00"
-            .Caption = "P.Facturado Bs"
+            .Caption = "P.Facturado $"
         End With
         With grdetalle.RootTable.Columns("cbpPublico")
             .Width = 140
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .Visible = True
             .FormatString = "0.00"
-            .Caption = "P.Público Bs."
+            .Caption = "P.Público $"
         End With
         With grdetalle.RootTable.Columns("cbpMecanico")
             .Width = 140
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .Visible = True
             .FormatString = "0.00"
-            .Caption = "P.Mecánico Bs."
+            .Caption = "P.Mecánico $"
         End With
         With grdetalle
             .GroupByBoxVisible = False
@@ -736,7 +722,7 @@ Public Class F0_MCompras
             .Caption = "MONEDA"
         End With
         With grCompra.RootTable.Columns("caobs")
-            .Width = 200
+            .Width = 250
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
             .Visible = True
             .Caption = "OBSERVACION"
@@ -770,7 +756,7 @@ Public Class F0_MCompras
             .Width = 150
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .Visible = True
-            .Caption = "TOTAL"
+            .Caption = "TOTAL $"
             .FormatString = "0.00"
         End With
         With grCompra.RootTable.Columns("caemision")
@@ -781,7 +767,7 @@ Public Class F0_MCompras
 
         End With
         With grCompra.RootTable.Columns("canumemis")
-            .Width = 120
+            .Width = 150
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .Visible = True
             .Caption = "NRO. DOCUMENTO"
@@ -1147,14 +1133,14 @@ Public Class F0_MCompras
             tbProveedor.Focus()
             Return False
         End If
-        If swMoneda.Value = False Then
-            If tbTipoCambio.Value <= 0 Then
-                Dim img As Bitmap = New Bitmap(My.Resources.mensaje, 50, 50)
-                ToastNotification.Show(Me, "El tipo de cambio debe ser mayor a 0".ToUpper, img, 2000, eToastGlowColor.Red, eToastPosition.BottomCenter)
-                Return False
-            End If
+        'If swMoneda.Value = False Then
+        '    If tbTipoCambio.Value <= 0 Then
+        '        Dim img As Bitmap = New Bitmap(My.Resources.mensaje, 50, 50)
+        '        ToastNotification.Show(Me, "El tipo de cambio debe ser mayor a 0".ToUpper, img, 2000, eToastGlowColor.Red, eToastPosition.BottomCenter)
+        '        Return False
+        '    End If
 
-        End If
+        'End If
 
         ''Controla que no se metan un mismo producto con el mismo lote y fecha de vencimiento
         Dim dt1 As DataTable = CType(grdetalle.DataSource, DataTable)
@@ -1185,7 +1171,7 @@ Public Class F0_MCompras
                                                   IIf(swMoneda.Value = True, 1, 0), tbObservacion.Text, tbMdesc.Value, tbtotal.Value,
                                                   CType(grdetalle.DataSource, DataTable), _detalleCompras, IIf(swEmision.Value = True, 1, 0), tbNFactura.Text,
                                                   IIf(swConsigna.Value = True, 1, 0), IIf(swRetencion.Value = True, 1, 0),
-                                                  IIf(swMoneda.Value = True, 1, tbTipoCambio.Value), 0, IIf(SwProforma.Value = True, tbProforma.Text, 0))
+                                                 1, 0, IIf(SwProforma.Value = True, tbProforma.Text, 0))
             If res Then
 
                 Dim img As Bitmap = New Bitmap(My.Resources.checked, 50, 50)
@@ -1290,7 +1276,7 @@ Public Class F0_MCompras
                                                  tbFechaVenc.Value.ToString("yyyy/MM/dd")), IIf(swMoneda.Value = True, 1, 0), tbObservacion.Text, tbMdesc.Value,
                                                  tbtotal.Value, CType(grdetalle.DataSource, DataTable), _detalleCompras, IIf(swEmision.Value = True, 1, 0),
                                                  tbNFactura.Text, IIf(swConsigna.Value = True, 1, 0), IIf(swRetencion.Value = True, 1, 0),
-                                                 IIf(swMoneda.Value = True, 1, tbTipoCambio.Value), 0)
+                                                 1, 0)
         If res Then
 
             Dim img As Bitmap = New Bitmap(My.Resources.checked, 50, 50)
@@ -1525,14 +1511,12 @@ Public Class F0_MCompras
                 Return
             End If
 
-            If (tbTipoCambio.Value <= 0) Then
-                ToastNotification.Show(Me, "           Antes de continuar por favor introduzca Tipo de Cambio mayor a 0!!             ", My.Resources.WARNING, 4000, eToastGlowColor.Red, eToastPosition.TopCenter)
-                tbProveedor.Focus()
-                Return
-            End If
-            'grdetalle.Select()
-            'grdetalle.Col = 2
-            'grdetalle.Row = 0
+            'If (tbTipoCambio.Value <= 0) Then
+            '    ToastNotification.Show(Me, "           Antes de continuar por favor introduzca Tipo de Cambio mayor a 0!!             ", My.Resources.WARNING, 4000, eToastGlowColor.Red, eToastPosition.TopCenter)
+            '    tbProveedor.Focus()
+            '    Return
+            'End If
+
         End If
 
 
@@ -1679,10 +1663,8 @@ salirIf:
                         Dim pFacturado As Double
                         Dim uni As Double = grdetalle.GetValue("cbpcost")
                         ''Cálculo de los demás precios
-                        pFacturado = ((uni + (uni * 0.25) + (uni * 0.16)) * 2) * 7
+                        pFacturado = grdetalle.GetValue("cbpFacturado")
 
-                        CType(grdetalle.DataSource, DataTable).Rows(pos).Item("cbpFacturado") = Math.Round(pFacturado, 2)
-                        grdetalle.SetValue("cbpFacturado", Math.Round(pFacturado, 2))
                         CType(grdetalle.DataSource, DataTable).Rows(pos).Item("cbpPublico") = Math.Round(pFacturado - (pFacturado * 0.1), 2)
                         grdetalle.SetValue("cbpPublico", Math.Round(pFacturado - (pFacturado * 0.1), 2))
                         CType(grdetalle.DataSource, DataTable).Rows(pos).Item("cbpMecanico") = Math.Round(pFacturado - (pFacturado * 0.15), 2)
@@ -2158,9 +2140,9 @@ salirIf:
             tbTipoCambio.Visible = False
             tbTipoCambio.Value = 1
         Else
-            lbTipoCambio.Visible = True
-            tbTipoCambio.Visible = True
-            tbTipoCambio.Value = 0
+            lbTipoCambio.Visible = False
+            tbTipoCambio.Visible = False
+            tbTipoCambio.Value = 1
         End If
     End Sub
 

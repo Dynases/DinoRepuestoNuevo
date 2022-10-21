@@ -191,17 +191,26 @@ Public Class F1_IngresosEgresos
             tbMonto.BackColor = Color.White
             MEP.SetError(tbMonto, "")
         End If
-        If (cbConcepto.Value = 2) Then 'Devolución
-            If (tbIdDevolucion.Text = "0") Then
-                Dim img As Bitmap = New Bitmap(My.Resources.mensaje, 50, 50)
-                MEP.SetError(tbIdDevolucion, "Por Favor debe seleccionar a que Id de Devolución pertenece !".ToUpper)
-                _ok = False
-            Else
-                tbIdDevolucion.BackColor = Color.White
-                MEP.SetError(tbIdDevolucion, "")
-            End If
-        End If
+        'If (cbConcepto.Value = 2) Then 'Devolución
+        '    If (tbIdDevolucion.Text = "0") Then
+        '        Dim img As Bitmap = New Bitmap(My.Resources.mensaje, 50, 50)
+        '        MEP.SetError(tbIdDevolucion, "Por Favor debe seleccionar a que Id de Devolución pertenece !".ToUpper)
+        '        _ok = False
+        '    Else
+        '        tbIdDevolucion.BackColor = Color.White
+        '        MEP.SetError(tbIdDevolucion, "")
+        '    End If
+        'End If
+        If (cbConcepto.SelectedIndex < 0) Then
 
+            Dim img As Bitmap = New Bitmap(My.Resources.mensaje, 50, 50)
+            MEP.SetError(cbConcepto, "Por Favor debe seleccionar un Concepto!".ToUpper)
+            _ok = False
+        Else
+            cbConcepto.BackColor = Color.White
+            MEP.SetError(cbConcepto, "")
+
+        End If
 
         MHighlighterFocus.UpdateHighlights()
         Return _ok
@@ -218,7 +227,7 @@ Public Class F1_IngresosEgresos
         listEstCeldas.Add(New Modelo.Celda("ieDescripcion", True, "Descripción", 350))
         listEstCeldas.Add(New Modelo.Celda("ieConcepto", False))
         listEstCeldas.Add(New Modelo.Celda("ycdes3", True, "Concepto", 250))
-        listEstCeldas.Add(New Modelo.Celda("ieMonto", True, "Monto Bs.", 150, "0.00"))
+        listEstCeldas.Add(New Modelo.Celda("ieMonto", True, "Monto $", 150, "0.00"))
         listEstCeldas.Add(New Modelo.Celda("ieObs", False))
         listEstCeldas.Add(New Modelo.Celda("ieEstado", False))
         listEstCeldas.Add(New Modelo.Celda("ieIdCaja", False))
@@ -384,15 +393,15 @@ Public Class F1_IngresosEgresos
         Else
             btConcepto.Visible = False
         End If
-        If cbConcepto.Value = 2 Then 'Devolución
-            lbDevolucion.Visible = True
-            tbIdDevolucion.Visible = True
-            btnBuscarDevolución.Visible = True
-        Else
-            lbDevolucion.Visible = False
-            tbIdDevolucion.Visible = False
-            btnBuscarDevolución.Visible = False
-        End If
+        'If cbConcepto.Value = 2 Then 'Devolución
+        '    lbDevolucion.Visible = True
+        '    tbIdDevolucion.Visible = True
+        '    btnBuscarDevolución.Visible = True
+        'Else
+        '    lbDevolucion.Visible = False
+        '    tbIdDevolucion.Visible = False
+        '    btnBuscarDevolución.Visible = False
+        'End If
     End Sub
 
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
@@ -526,6 +535,8 @@ Public Class F1_IngresosEgresos
             tbIdDevolucion.Text = grDevolucion.GetValue("dbnumi")
         End If
     End Sub
+
+
 
 
 

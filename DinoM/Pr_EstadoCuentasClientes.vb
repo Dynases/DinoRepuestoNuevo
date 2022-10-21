@@ -186,7 +186,7 @@ Public Class Pr_EstadoCuentasClientes
 
     Private Sub btnGenerar_Click(sender As Object, e As EventArgs) Handles btnGenerar.Click
         If tbCliente.Text = String.Empty Then
-            ToastNotification.Show(Me, "Debe Seleccionar un Proveedor..!!!".ToUpper,
+            ToastNotification.Show(Me, "Debe Seleccionar un Cliente..!!!".ToUpper,
                                        My.Resources.INFORMATION, 2000,
                                        eToastGlowColor.Blue,
                                        eToastPosition.TopCenter)

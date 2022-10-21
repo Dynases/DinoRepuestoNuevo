@@ -130,7 +130,7 @@ Public Class F0_CierreCaja
         dtCortes.Rows.Add(0, 0, 1, CorteBolivianos, Convert.ToDecimal(0), Convert.ToDecimal(0), CorteDolares, Convert.ToDecimal(0), Convert.ToDecimal(0), 0)
     End Sub
     Private Sub _prLlenarDepositos(ByRef dtDeposito As DataTable)
-        dtDeposito.Rows.Add(0, 0, 1, cbbanco.Text, "Bs", "", DateTime.Today, 0.00, 0)
+        dtDeposito.Rows.Add(0, 0, 1, cbbanco.Text, "$", "", DateTime.Today, 0.00, 0)
     End Sub
     Public Sub _prDetalleCortes(IdCaja As Integer)
         Try
@@ -157,7 +157,7 @@ Public Class F0_CierreCaja
                 .Width = 130
                 .FormatString = "0.00"
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-                .Visible = True
+                .Visible = False
                 .Position = 3
             End With
             With Dgv_Cortes.RootTable.Columns("cdCantB")
@@ -165,7 +165,7 @@ Public Class F0_CierreCaja
                 .Width = 130
                 .FormatString = "0"
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-                .Visible = True
+                .Visible = False
                 .Position = 4
             End With
             With Dgv_Cortes.RootTable.Columns("cdTotalB")
@@ -174,7 +174,7 @@ Public Class F0_CierreCaja
                 .FormatString = "0.00"
                 .AggregateFunction = AggregateFunction.Sum
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-                .Visible = True
+                .Visible = False
                 .Position = 5
             End With
             With Dgv_Cortes.RootTable.Columns("cdCorteD")
@@ -251,7 +251,7 @@ Public Class F0_CierreCaja
                 .Caption = "MONEDA"
                 .Width = 100
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
-                .Visible = True
+                .Visible = False
                 .Position = 4
             End With
             With Dgv_Depositos.RootTable.Columns("ceNDepos")
@@ -269,7 +269,7 @@ Public Class F0_CierreCaja
 
             End With
             With Dgv_Depositos.RootTable.Columns("ceMonto")
-                .Caption = "MONTO BS"
+                .Caption = "MONTO $"
                 .Width = 150
                 .AggregateFunction = AggregateFunction.Sum
                 .FormatString = "0.00"
@@ -313,7 +313,7 @@ Public Class F0_CierreCaja
             With Dgv_VentasPagos.RootTable.Columns("contado")
                 .Caption = "CONTADO BS."
                 .Width = 120
-                .Visible = True
+                .Visible = False
                 .FormatString = "0.00"
                 .AggregateFunction = AggregateFunction.Sum
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
@@ -337,16 +337,16 @@ Public Class F0_CierreCaja
             End With
 
             With Dgv_VentasPagos.RootTable.Columns("tarjeta")
-                .Caption = "TRANSFERENCIA"
-                .Width = 120
+                .Caption = "TRANSFERENCIA $"
+                .Width = 150
                 .Visible = True
                 .FormatString = "0.00"
                 .AggregateFunction = AggregateFunction.Sum
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             End With
             With Dgv_VentasPagos.RootTable.Columns("pagosCliente")
-                .Caption = "PAGOS CLIENTES"
-                .Width = 120
+                .Caption = "PAGOS CLIENTES $"
+                .Width = 140
                 .Visible = True
                 .FormatString = "0.00"
                 .AggregateFunction = AggregateFunction.Sum
@@ -355,7 +355,7 @@ Public Class F0_CierreCaja
             With Dgv_VentasPagos.RootTable.Columns("pagosPrestamo")
                 .Caption = "PAGOS PRÉSTAMOS"
                 .Width = 120
-                .Visible = True
+                .Visible = False
                 .FormatString = "0.00"
                 .AggregateFunction = AggregateFunction.Sum
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
@@ -368,9 +368,9 @@ Public Class F0_CierreCaja
                 .AggregateFunction = AggregateFunction.Sum
             End With
             With Dgv_VentasPagos.RootTable.Columns("totalbs")
-                .Caption = "TOTAL VENTA BS"
+                .Caption = "TOTAL VENTA BS."
                 .Width = 150
-                .Visible = True
+                .Visible = False
                 .FormatString = "0.00"
                 .AggregateFunction = AggregateFunction.Sum
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
@@ -378,8 +378,8 @@ Public Class F0_CierreCaja
             End With
             With Dgv_VentasPagos.RootTable.Columns("total$")
                 .Caption = "TOTAL $"
-                .Width = 120
-                .Visible = False
+                .Width = 150
+                .Visible = True
                 .FormatString = "0.00"
                 .AggregateFunction = AggregateFunction.Sum
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
@@ -417,7 +417,7 @@ Public Class F0_CierreCaja
             With Dgv_VentasPagos.RootTable.Columns("contado")
                 .Caption = "CONTADO BS."
                 .Width = 120
-                .Visible = True
+                .Visible = False
                 .FormatString = "0.00"
                 .AggregateFunction = AggregateFunction.Sum
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
@@ -441,16 +441,16 @@ Public Class F0_CierreCaja
             End With
 
             With Dgv_VentasPagos.RootTable.Columns("tarjeta")
-                .Caption = "TRANSFERENCIA"
-                .Width = 130
+                .Caption = "TRANSFERENCIA $"
+                .Width = 150
                 .Visible = True
                 .FormatString = "0.00"
                 .AggregateFunction = AggregateFunction.Sum
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             End With
             With Dgv_VentasPagos.RootTable.Columns("pagosCliente")
-                .Caption = "PAGOS CLIENTE"
-                .Width = 120
+                .Caption = "PAGOS CLIENTE $"
+                .Width = 140
                 .Visible = True
                 .FormatString = "0.00"
                 .AggregateFunction = AggregateFunction.Sum
@@ -459,7 +459,7 @@ Public Class F0_CierreCaja
             With Dgv_VentasPagos.RootTable.Columns("pagosPrestamo")
                 .Caption = "PAGOS PRÉSTAMO"
                 .Width = 120
-                .Visible = True
+                .Visible = False
                 .FormatString = "0.00"
                 .AggregateFunction = AggregateFunction.Sum
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
@@ -474,7 +474,7 @@ Public Class F0_CierreCaja
             With Dgv_VentasPagos.RootTable.Columns("totalbs")
                 .Caption = "TOTAL VENTA BS"
                 .Width = 150
-                .Visible = True
+                .Visible = False
                 .FormatString = "0.00"
                 .AggregateFunction = AggregateFunction.Sum
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
@@ -483,7 +483,7 @@ Public Class F0_CierreCaja
             With Dgv_VentasPagos.RootTable.Columns("total$")
                 .Caption = "TOTAL $"
                 .Width = 120
-                .Visible = False
+                .Visible = True
                 .FormatString = "0.00"
                 .AggregateFunction = AggregateFunction.Sum
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
@@ -538,8 +538,8 @@ Public Class F0_CierreCaja
     End Sub
     Private Sub _prhabilitar()
         TbCodigo.ReadOnly = True
-        ' tbFecha.IsInputReadOnly = False
-        'tbFecha.Enabled = True
+        tbFecha.IsInputReadOnly = False
+        tbFecha.Enabled = True
         cbTurno.ReadOnly = False
         tbMontoInicial.IsInputReadOnly = False
         tbObservacion.ReadOnly = False
