@@ -169,9 +169,6 @@ Partial Class F1_IngresosEgresos
         'btnSalir
         '
         '
-        'btnGrabar
-        '
-        '
         'btnModificar
         '
         '

@@ -116,7 +116,7 @@ Public Class F1_IngresosEgresos
 
     Public Overrides Sub _PMOHabilitar()
         swTipo.IsReadOnly = False
-        'dpFecha.Enabled = True
+        dpFecha.Enabled = True
         tbDescripcion.ReadOnly = False
         cbConcepto.ReadOnly = False
         tbMonto.IsInputReadOnly = False

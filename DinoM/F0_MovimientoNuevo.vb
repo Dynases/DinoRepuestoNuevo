@@ -119,6 +119,7 @@ Public Class F0_MovimientoNuevo
     Private Sub _prhabilitar()
         tbObservacion.ReadOnly = False
         tbFecha.IsInputReadOnly = False
+        tbFecha.Enabled = True
         cbAlmacenOrigen.ReadOnly = False
         grmovimiento.Enabled = False
         If (tbCodigo.Text.Length > 0) Then

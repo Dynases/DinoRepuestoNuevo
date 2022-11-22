@@ -271,7 +271,8 @@ Public Class F0_Ventas
         ''  tbCliente.ReadOnly = False  por que solo podra seleccionar Cliente
         ''  tbVendedor.ReadOnly = False
         tbObservacion.ReadOnly = False
-        'tbFechaVenta.IsInputReadOnly = False
+        tbFechaVenta.IsInputReadOnly = False
+        tbFechaVenta.Enabled = True
         tbFechaVenc.IsInputReadOnly = False
         swMoneda.IsReadOnly = False
         swTipoVenta.IsReadOnly = False

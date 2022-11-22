@@ -148,6 +148,7 @@ Public Class F0_MCompras
         ''  tbVendedor.ReadOnly = False
         tbObservacion.ReadOnly = False
         tbFechaVenta.IsInputReadOnly = False
+        tbFechaVenta.Enabled = True
         tbFechaVenc.IsInputReadOnly = False
         tbFechaVenc.Enabled = True
         SwProforma.IsReadOnly = False

@@ -108,7 +108,8 @@ Public Class F0_PagosCreditoCompraUlt
     Private Sub _prhabilitar()
         grcobranza.Enabled = False
         tbnrodoc.ReadOnly = False
-        'tbfecha.IsInputReadOnly = False
+        tbfecha.IsInputReadOnly = False
+        tbfecha.Enabled = True
         tbObservacion.ReadOnly = False
 
 

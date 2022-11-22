@@ -108,6 +108,7 @@ Public Class F0_PagosCreditoNuevo
         grcobranza.Enabled = False
         tbnrodoc.ReadOnly = False
         tbfecha.IsInputReadOnly = False
+        tbfecha.Enabled = True
         tbObservacion.ReadOnly = False
         tbcobrador.ReadOnly = False
         'cbSucursal.ReadOnly = False
