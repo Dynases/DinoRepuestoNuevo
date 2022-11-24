@@ -1002,6 +1002,7 @@ Partial Class F0_CierreCaja
         Me.LabelX21.Size = New System.Drawing.Size(140, 23)
         Me.LabelX21.TabIndex = 70
         Me.LabelX21.Text = "T. Pagos Préstamos(-)"
+        Me.LabelX21.Visible = False
         '
         'tbTPagosPrestamos
         '
@@ -1018,6 +1019,7 @@ Partial Class F0_CierreCaja
         Me.tbTPagosPrestamos.Name = "tbTPagosPrestamos"
         Me.tbTPagosPrestamos.Size = New System.Drawing.Size(120, 23)
         Me.tbTPagosPrestamos.TabIndex = 69
+        Me.tbTPagosPrestamos.Visible = False
         '
         'LabelX17
         '

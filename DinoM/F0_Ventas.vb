@@ -633,7 +633,7 @@ Public Class F0_Ventas
         With grdetalle.RootTable.Columns("tbPrecioReferencia")
             .Width = 85
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-            .Visible = True
+            .Visible = False
             .FormatString = "0.00"
             .Caption = "Pre. Fact."
             .AllowSort = False
@@ -641,7 +641,7 @@ Public Class F0_Ventas
         With grdetalle.RootTable.Columns("tbPorcentajeReferencia")
             .Width = 60
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-            .Visible = True
+            .Visible = False
             .FormatString = "0.00"
             .Caption = "% Dif."
             .AllowSort = False
@@ -685,7 +685,7 @@ Public Class F0_Ventas
         With grdetalle.RootTable.Columns("tbporc")
             .Width = 80
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-            .Visible = True
+            .Visible = False
             .FormatString = "0.00"
             .Caption = "P.Desc(%)"
             .AllowSort = False
@@ -2030,8 +2030,11 @@ Public Class F0_Ventas
         pDecimal = Split(ParteDecimal.ToString, ".")
 
 
+        'Dim li As String = Facturacion.ConvertirLiteral.A_fnConvertirLiteral(CDbl(ParteEntera)) + " con " +
+        'IIf(pDecimal(1).ToString.Equals("0"), "00", pDecimal(1).ToString) + "/100 Bolivianos"
+
         Dim li As String = Facturacion.ConvertirLiteral.A_fnConvertirLiteral(CDbl(ParteEntera)) + " con " +
-        IIf(pDecimal(1).ToString.Equals("0"), "00", pDecimal(1).ToString) + "/100 Bolivianos"
+        IIf(pDecimal(1).ToString.Equals("0"), "00", pDecimal(1).ToString) + "/100 Dólares"
 
         ParteEntera = Int(totald)
         ParteDecimal = Math.Round(totald - ParteEntera, 2)
